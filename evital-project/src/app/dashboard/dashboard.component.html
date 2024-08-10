@@ -1,0 +1,117 @@
+<div class="dashboard" style="overflow: hidden;">
+  <header class="header">
+    <img class="logo" src="https://staging.evitalrx.in/assets/images/logo2.png" alt="Logo">
+    <div class="nav-links">
+      <a href="**">eOrders</a>
+      <a href="**">Sales</a>
+      <a href="**">Purchase</a>
+      <a href="**">Inventory</a>
+      <a href="**">Reports</a>
+      <a href="**">Sahaai</a>
+      <a href="**">More</a>
+      <a href="**">Settings</a>
+    </div>
+
+    <!-- User Profile Panel -->
+    <mat-card class="user-profile-card" (click)="toggleProfile($event)" matTooltip="Profile & Settings">
+      <div class="profile-header">
+        <div class="profile-image">
+          <span><img class="img-panel" src="https://staging.evitalrx.in/assets/images/profile_placeholder.png" alt="Profile"></span>
+        </div>
+        <mat-icon class="chevron-icon">expand_more</mat-icon>
+      </div>
+    </mat-card>
+  </header>
+
+  <!-- Profile Info Panel -->
+  <mat-card *ngIf="showProfile" class="profile-info-card" (click)="stopPropagation($event)">
+    <div class="profile-content">
+      <div class="user-info">
+        <div class="user-details" style="margin-left: 10px;">
+          <h4>eVital Medicals</h4>
+          <p>Address: {{ userProfile?.address }}, {{ userProfile?.city }}, {{ userProfile?.state }} - {{ userProfile?.zip }}</p>
+          <div class="profile-img-container">
+            <img src="https://staging.evitalrx.in/assets/images/profile_placeholder.png" alt="Profile Image" class="profile-img">
+            <span class="profile-username">{{ username }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <button mat-button>Update Profile</button>
+        <button mat-button>Show QR</button>
+        <button mat-button>VitalCoins</button>
+        <button mat-button>Refer & Earn</button>
+        <button mat-button>Collection</button>
+        <button mat-button>Help</button>
+        <button mat-button (click)="onLogout()" class="logout-text" matTooltip="Logout">Logout</button>
+      </div>
+    </div>
+  </mat-card>
+
+  <main class="main-content">
+     <!-- Search Results Panel -->
+     <div class="search-results-panel" *ngIf="searchResults.length > 0" #searchResultsPanel>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Medicine Name</th>
+            <th>Manufacturer</th>
+            <th>Price</th>
+            <th class="details-column">Details</th>
+            <th>Availability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let medicine of searchResults; let i = index"
+              (click)="addToCart(medicine)"
+              [ngClass]="{'selected': i === selectedIndex, 'out-of-stock-row': medicine.in_stock === 'no'}"
+              [attr.disabled]="medicine.in_stock === 'no' ? true : null"
+              #resultRow>
+            <td>{{ medicine.medicine_name }}</td>
+            <td>{{ medicine.manufacturer_name }}</td>
+            <td>{{ medicine.price }}</td>
+            <td class="details-cell">
+              <button mat-button
+                (mouseenter)="onHoverMedicine(medicine)"
+                (mouseleave)="onLeaveMedicine()"
+                [disabled]="true">
+                <img class="details-icon" src="https://img.icons8.com/?size=100&id=37303&format=png&color=044c9d" alt="">
+              </button>
+            </td>
+            <td>
+              <span *ngIf="medicine.in_stock === 'yes'" class="stock-status in-stock">
+                <img src="https://img.icons8.com/?size=100&id=uNzoeGXjLfRM&format=png&color=40C057" alt="In Stock" matTooltip="Available">
+              </span>
+              <span *ngIf="medicine.in_stock === 'no'" class="stock-status out-of-stock">
+                <img src="https://img.icons8.com/?size=100&id=111057&format=png&color=FA5252" alt="Out of Stock" matTooltip="Not Available">
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="medicine-details-popup" *ngIf="hoveredMedicine">
+      <p><strong>Content:</strong> {{ hoveredMedicine.content }}</p>
+      <p><strong>Packing:</strong> {{ hoveredMedicine.packing_size }}</p>
+      <p><strong>Price:</strong> {{ hoveredMedicine.price }}</p>
+    </div>
+    <!-- Cart Component Integration -->
+    <div class="cart-section">
+      <div class="search-section">
+        <input
+          type="text"
+          class="search-input"
+          [(ngModel)]="searchQuery"
+          (input)="onSearch()"
+          (keyup)="onKeyUp($event)"
+          placeholder="Search Products"
+          matTooltip="Search Products"
+        >
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+
+      <app-cart></app-cart>
+    </div>
+    </div>
+  </main>
+  <h3 style="text-align: center; color: red; margin-bottom: -1px; font-weight: bold;">NOTE: If customer name suggestion is not coming, then click on add patients and add the details there and come back to dashboard and search.</h3>

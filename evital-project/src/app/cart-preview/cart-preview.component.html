@@ -1,0 +1,9 @@
+<div *ngIf="cart.length > 0" class="cart-preview">
+  <h3>Cart Preview</h3>
+  <ul>
+    <li *ngFor="let item of cart">
+      {{ item.medicine_name }} - {{ item.quantity }}
+    </li>
+  </ul>
+  <a [routerLink]="'/cart'" class="view-cart-link">View Cart</a>
+</div>

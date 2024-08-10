@@ -1,0 +1,505 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.user-profile-card {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  width: 40px;
+  background-color: #044c9d;
+  margin-right: 20px;
+  height: 20px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.profile-image {
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #044c9d;
+  font-size: 18px;
+  border: 3px solid #ffc956;
+  box-shadow: inset 0 0 1px 2px #044c9d;
+  margin-right: 10px;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 10px 0;
+  cursor: pointer;
+  margin-right: 120px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+
+
+.chevron-icon {
+  font-size: 24px;
+  color: #ccc;
+}
+
+/* Profile Info Panel Styles */
+.profile-info-card {
+  width: 620px;
+  height: 360px;
+  background-color: #fff;
+  border-radius: 4px !important;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  top: 53px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 10px;
+  padding: 3px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  left: 1580px;
+  margin-top: 20px;
+
+  border: 5px solid #ccc;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+/* Layout for Profile Content */
+.profile-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.user-info {
+  background-color: #004080;
+  color: #fff;
+  width: 135%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-details h4 {
+  margin-top: 180px;
+}
+
+.profile-img-container {
+  display: flex;
+  align-items: center;
+}
+
+.img-panel {
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #044c9d;
+  font-size: 18px;
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.profile-username {
+  font-size: 18px;
+  margin-left: 10px
+}
+
+.actions {
+  width: 50%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #f9f9f9;
+}
+
+.actions button {
+  margin-bottom: 10px;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+.header {
+  background-color: #044c9d;;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dee2e6;
+  padding: 10px;
+  flex-direction: row;
+  height: 55px;
+}
+
+.logo {
+width: 8%;
+margin-left: 20px;
+}
+
+.logout-text {
+  border-radius: 5px;
+  background-color: #0056b3;
+  color: white;
+  width: 100px;
+  height: 40px;
+  font-size: -0.8rem;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+}
+
+.greeting {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 70%;
+}
+
+.search-input {
+  border-radius: 4px;
+  cursor: auto;
+
+  width: 100%;
+  padding: 10px;
+
+  font-size: 1rem;
+
+  max-width: 440px;
+  margin-left: 42px;
+  margin-bottom: 47px;
+  margin-top: 45px;
+  box-sizing: border-box;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid black;
+}
+
+input:focus{
+  outline: none;
+}
+
+h1{
+  margin-left: -18px;
+  margin-top: -20px;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f0f2f5;
+
+  position: relative;
+
+  flex-direction: column;
+}
+
+.error-message {
+  color: red;
+  font-size: 1rem;
+  margin-bottom: 19px;
+  margin-top: -40px;
+  margin-left: 40px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  border-bottom: 1px solid #dee2e6;
+  padding: 10px 0;
+}
+
+.add-to-cart-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #0056b3;
+}
+
+.footer {
+  background-color: #f8f9fa;
+  padding: 15px;
+  text-align: center;
+  border-top: 1px solid #dee2e6;
+}
+
+/* Individual item styling */
+.medicine-item {
+  background-color: #f9f9f9;
+  border: 3px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 10px 0;
+
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.medicine-item:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.02);
+}
+
+/* Message styling for no results */
+.no-results-message {
+  text-align: center;
+  font-size: 1.2em;
+  color: #333;
+  margin-top: 20px;
+}
+
+
+/* container */
+
+.content-container {
+  display: flex;
+  width: 100%;
+  max-width: 1900px;
+  gap: 2rem;
+  height: 750px;
+}
+
+.search-results {
+  overflow-x: auto;
+  margin-right: 1000px;
+  margin-top: 15px;
+}
+
+
+.search-section, .cart-section {
+  flex: 1;
+  padding: 2rem;
+  background-color: #fff;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+}
+
+.medicine-list-container {
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.cart-section {
+  margin-top: 20px;
+  margin-bottom: 25px;
+  margin-right: 20px;
+  margin-left: 20px;
+  box-shadow: 10px 5px 5px 4px rgba(19, 47, 204, 0.2), 15px 10px 12px 2px rgba(19, 47, 204, 0.2),  -7px -4px 19px 12px  rgba(19, 47, 204, 0.2)
+}
+
+.medicine-list-container, .medicine-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    margin-top: 10px;
+  }
+
+  .main-content {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    font-size: 14px;
+  }
+
+  .search-input {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .cart-section, .search-section {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .main-content {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    font-size: 14px;
+  }
+
+  .search-input {
+    font-size: 14px;
+  }
+}
+
+.search-results-panel {
+  position: absolute;
+  top: 113.4%;
+  left: 0;
+  width: 30%;
+  max-height: 300px;
+  overflow-y: auto;
+  background: white;
+  border: 4px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+  margin-top: -766px;
+  margin-right: 20px;
+  margin-left: 150px;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.results-table th, .results-table td {
+  border: 1px solid #ddd;
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: left;
+}
+
+.results-table tr {
+  cursor: pointer;
+}
+
+.results-table tr.selected {
+  background-color: #cce5ff;
+  font-weight: bold;
+}
+
+.results-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+tr {
+  display: table-row;
+}
+
+.mat-card>:last-child:not(.mat-card-footer), .mat-card-content>:last-child:not(.mat-card-footer) {
+  margin-bottom: 0;
+  margin-left: -17px;
+}
+
+.medicine-details-popup {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  margin-left: 700px;
+  margin-bottom: 372px;
+}
+
+.details-column {
+  width: 50px;
+  text-align: center;
+}
+
+.details-cell {
+  padding: 0;
+}
+
+.details-icon {
+  width: 25px;
+  height: auto;
+}
+
+
+.stock-status {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.in-stock img {
+  width: 34px;
+  height: 34px;
+  pointer-events: none;
+}
+
+.out-of-stock img {
+  width: 24px;
+  height: 24px;
+}
+
+.out-of-stock-row {
+  background-color: #f8d7da;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.out-of-stock-row td {
+  pointer-events: none;
+}
+
+.out-of-stock-row .details-cell button {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

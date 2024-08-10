@@ -1,0 +1,70 @@
+<link href='https://unpkg.com/css.gg@2.0.0/icons/css/headset.css' rel='stylesheet'>
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <form class="login100-form" (ngSubmit)="login()" #loginForm="ngForm">
+        <span class="login100-form-title p-b-43">
+          <h2>Login</h2>
+        </span>
+
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+        <div class="wrap-input100">
+          <input
+            class="input100"
+            type="text"
+            [(ngModel)]="mobile"
+            name="mobile"
+            required
+            (focus)="onFocus('mobile')"
+            (blur)="onBlur('mobile')"
+            (input)="validateMobile($event)"
+            maxlength="10"
+          >
+          <span class="focus-input100"></span>
+          <span class="label-input100" [ngClass]="{'label-hidden': mobile || isMobileFocused}">Mobile</span>
+        </div>
+
+        <div class="wrap-input100">
+          <input
+            class="input100"
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            required
+            (focus)="onFocus('password')"
+            (blur)="onBlur('password')"
+          >
+          <span class="focus-input100"></span>
+          <span class="label-input100" [ngClass]="{'label-hidden': password || isPasswordFocused}">Password</span>
+        </div>
+
+        <div class="flex-sb-m w-full p-t-3 p-b-32">
+          <div>
+            <a routerLink="/register" class="txt1">
+              Not Registered? Sign up
+            </a>
+          </div>
+        </div>
+
+        <div class="container-login100-form-btn">
+          <button type="submit" class="login100-form-btn" [disabled]="loginForm.invalid">
+            Login
+          </button>
+        </div>
+        <div *ngIf="mobileError" class="error-message">{{ mobileError }}</div>
+      </form>
+
+      <div class="login100-more bg-image">
+        <img class="logo" routerLink="/login" src="https://staging.evitalrx.in/assets/images/logo2.png" alt="s">
+        <div class="top-right-info">
+          <div class="top-right-container">
+            <i class="gg-headset" aria-hidden="true"></i>
+            <span class="mobile-number">84 01 82 62 62</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

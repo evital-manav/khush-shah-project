@@ -1,0 +1,129 @@
+<div>
+  <!-- Mat Card for BottomSheet Header -->
+  <mat-card>
+    <div mat-dialog-title>
+        <div>
+          <img src="https://www.evitalrx.in/webroot/images/evital-images/logo.png" alt=".ss" class="img">
+          <img src="https://img.icons8.com/?size=100&id=8112&format=png&color=FFFFFF" alt="close" class="img" class="close-btmSheet" matTooltip="Close" (click)="onCancel()">
+          <h1>Patient Form</h1>
+        </div>
+    </div>
+  </mat-card>
+<form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput type="text" placeholder="Eg. Ram" formControlName="firstName">
+            <mat-error *ngIf="patientForm.get('firstName')?.hasError('required')">
+              First Name is required!
+            </mat-error>
+            <mat-error *ngIf="patientForm.get('firstName')?.hasError('maxlength')">
+              First Name cannot exceed 50 characters!
+            </mat-error>
+            <mat-error *ngIf="patientForm.get('firstName')?.hasError('pattern')">
+              First Name cannot contain digits, whitespace, or special characters!
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text" placeholder="Eg. Kumar" formControlName="lastName">
+            <mat-error *ngIf="patientForm.get('lastName')?.hasError('required')">
+              Last Name is required!
+            </mat-error>
+            <mat-error *ngIf="patientForm.get('lastName')?.hasError('maxlength')">
+              Last Name cannot exceed 50 characters!
+            </mat-error>
+            <mat-error *ngIf="patientForm.get('lastName')?.hasError('pattern')">
+              Last Name cannot contain digits, whitespace, or special characters!
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" placeholder="Eg. ram@gmail.com" formControlName="email">
+            <mat-error *ngIf="patientForm.get('email')?.hasError('required')">
+              Email is required!
+            </mat-error>
+            <mat-error *ngIf="patientForm.get('email')?.hasError('maxlength')">
+              Email cannot exceed 50 characters!
+            </mat-error>
+            <mat-error *ngIf="patientForm.get('email')?.hasError('email')">
+              Please enter a valid email address!
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="YYYY-MM-DD">
+          <mat-hint>Format: YYYY-MM-DD</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="patientForm.get('dob')?.hasError('required')">
+            Date of Birth is required!
+          </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-radio-group aria-label="Select an option" formControlName="gender">
+            <mat-label><b>Gender </b></mat-label>
+            <mat-radio-button value="male">Male</mat-radio-button>
+            <mat-radio-button value="female">Female</mat-radio-button>
+            <mat-radio-button value="others">Others</mat-radio-button>
+            <mat-error *ngIf="patientForm.get('gender')?.hasError('required')">
+              Gender is required!
+            </mat-error>
+        </mat-radio-group>
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="outline">
+        <mat-label>Patient's Blood Group</mat-label>
+        <mat-select formControlName="bloodgrp">
+            <mat-option *ngFor="let blood of bloodGroup" [value]="blood">
+                {{blood}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="patientForm.get('bloodgrp')?.hasError('required')">
+          Blood Group is required!
+        </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Mobile</mat-label>
+            <input matInput type="text" placeholder="Eg. 8128787123" formControlName="mobile" (input)="onMobileInput($event)">
+            <mat-error *ngIf="patientForm.get('mobile')?.hasError('required')">
+              Mobile is required!
+            </mat-error>
+            <mat-error *ngIf="patientForm.get('mobile')?.hasError('pattern')">
+              Please enter a valid 10-digit mobile number!
+            </mat-error>
+            <mat-error *ngIf="patientForm.get('mobile')?.hasError('maxlength')">
+              Mobile number cannot exceed 10 digits!
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>ZipCode</mat-label>
+            <input matInput type="text" placeholder="Eg. 560078" formControlName="zipCode" (input)="onZipCodeInput($event)">
+            <mat-error *ngIf="patientForm.get('zipCode')?.hasError('required')">
+              ZipCode is required!
+            </mat-error>
+            <mat-error *ngIf="patientForm.get('zipCode')?.hasError('pattern')">
+              Please enter a valid 6-digit ZipCode!
+            </mat-error>
+            <mat-error *ngIf="patientForm.get('zipCode')?.hasError('maxlength')">
+              ZipCode cannot exceed 6 digits!
+            </mat-error>
+        </mat-form-field>
+    </div>
+</div>
+<div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" (click)="onCancel()" >Cancel</button>
+    <button mat-raised-button style="background-color: #044c9d; color: white;" type="submit">{{ data ? 'Update' : 'Add' }}</button>
+</div>
+</form>
+</div>
