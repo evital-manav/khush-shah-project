@@ -1,0 +1,179 @@
+<link href='https://unpkg.com/css.gg@2.0.0/icons/css/headset.css' rel='stylesheet'>
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <form class="login100-form" (ngSubmit)="register()" #registerForm="ngForm" style="overflow: hidden;">
+        <span class="login100-form-title p-b-43">
+          <h2>Register</h2>
+        </span>
+
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+        <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+
+        <!-- NAME -->
+        <div class="wrap-input100">
+          <input
+            class="input100"
+            type="text"
+            [(ngModel)]="name"
+            name="name"
+            required
+            (focus)="onFocus('name')"
+            (blur)="onBlur('name')"
+            (input)="validateName($event)"
+            maxlength="30"
+          >
+          <span class="focus-input100"></span>
+          <span class="label-input100" [ngClass]="{'label-hidden': name || isNameFocused}">Name</span>
+        </div>
+
+        <!-- Mobile -->
+        <div class="wrap-input100">
+          <input
+            class="input100"
+            type="text"
+            [(ngModel)]="mobile"
+            name="mobile"
+            required
+            (focus)="onFocus('mobile')"
+            (blur)="onBlur('mobile')"
+            (input)="validateMobile($event)"
+            maxlength="10"
+          >
+          <span class="focus-input100"></span>
+          <span class="label-input100" [ngClass]="{'label-hidden': mobile || isMobileFocused}">Mobile</span>
+        </div>
+
+        <!-- Password -->
+        <div class="wrap-input100">
+          <input
+            class="input100"
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            required
+            (focus)="onFocus('password')"
+            (blur)="onBlur('password')"
+          >
+          <span class="focus-input100"></span>
+          <span class="label-input100" [ngClass]="{'label-hidden': password || isPasswordFocused}">Password</span>
+        </div>
+
+        <!-- Email -->
+        <div class="wrap-input100">
+          <input
+            class="input100"
+            type="email"
+            [(ngModel)]="email"
+            name="email"
+            required
+            (focus)="onFocus('email')"
+            (blur)="onBlur('email')"
+            (input)="validateEmail($event)"
+            maxlength="30"
+          >
+          <span class="focus-input100"></span>
+          <span class="label-input100" [ngClass]="{'label-hidden': email || isEmailFocused}">Email</span>
+        </div>
+
+        <!-- Address -->
+        <div class="wrap-input100">
+          <textarea
+            class="input100"
+            [(ngModel)]="address"
+            name="address"
+            required
+            (focus)="onFocus('address')"
+            (blur)="onBlur('address')"
+          ></textarea>
+          <span class="focus-input100"></span>
+          <span class="label-input100" [ngClass]="{'label-hidden': address || isAddressFocused}">Address</span>
+        </div>
+
+        <!-- City -->
+        <div class="wrap-input100">
+          <input
+            class="input100"
+            type="text"
+            [(ngModel)]="city"
+            name="city"
+            required
+            (focus)="onFocus('city')"
+            (blur)="onBlur('city')"
+            (input)="validateCity($event)"
+            maxlength="30"
+          >
+          <span class="focus-input100"></span>
+          <span class="label-input100" [ngClass]="{'label-hidden': city || isCityFocused}">City</span>
+        </div>
+
+        <!-- State -->
+        <div class="wrap-input100">
+          <input
+            class="input100"
+            type="text"
+            [(ngModel)]="state"
+            name="state"
+            required
+            (focus)="onFocus('state')"
+            (blur)="onBlur('state')"
+            (input)="validateState($event)"
+            maxlength="30"
+          >
+          <span class="focus-input100"></span>
+          <span class="label-input100" [ngClass]="{'label-hidden': state || isStateFocused}">State</span>
+        </div>
+
+        <!-- ZipCode -->
+        <div class="wrap-input100">
+          <input
+            class="input100"
+            type="text"
+            [(ngModel)]="zip"
+            name="zip"
+            required
+            (focus)="onFocus('zip')"
+            (blur)="onBlur('zip')"
+            (input)="validateZip($event)"
+            maxlength="6"
+          >
+          <span class="focus-input100"></span>
+          <span class="label-input100" [ngClass]="{'label-hidden': zip || isZipFocused}">ZIP Code</span>
+        </div>
+
+        <div class="flex-sb-m w-full p-t-3 p-b-32">
+          <div>
+            <a routerLink="/login" class="txt1">
+              Already Registered? Login
+            </a>
+          </div>
+        </div>
+
+        <div class="container-login100-form-btn">
+          <button type="submit" class="login100-form-btn" [disabled]="registerForm.invalid || isFormInvalid()">
+            Register
+          </button>
+        </div>
+        <div *ngIf="nameError" class="error-message">{{ nameError }}</div>
+        <div *ngIf="mobileError" class="error-message">{{ mobileError }}</div>
+        <div *ngIf="emailError" class="error-message">{{ emailError }}</div>
+        <div *ngIf="cityError" class="error-message">{{ cityError }}</div>
+        <div *ngIf="stateError" class="error-message">{{ stateError }}</div>
+        <div *ngIf="zipError" class="error-message">{{ zipError }}</div>
+      </form>
+
+      <p *ngIf="successMessage">{{ successMessage }}</p>
+      <p *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      <div class="login100-more background-container" style="background-image: url(../../assets/register-medicine.jpg);">
+        <img class="logo" src="https://www.evitalrx.in/webroot/images/evital-images/logo.png" alt="s">
+        <div class="top-right-info">
+          <div class="top-right-container">
+            <i class="gg-headset" aria-hidden="true"></i>
+            <span class="mobile-number">81 28 93 71 97</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

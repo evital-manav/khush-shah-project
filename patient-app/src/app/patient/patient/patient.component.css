@@ -1,0 +1,65 @@
+* {
+  background-color: white;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+  margin-left: 20px;
+}
+
+.mat-raised-button {
+  margin: 30px;
+}
+
+.main-body {
+padding-top: 20px;
+margin: 0 auto;
+max-width: 1700px;
+}
+
+.add-img {
+  width: 40px;
+  height: auto;
+  margin-right: -20px;
+}
+
+.pipe {
+  margin-left: -20px;
+}
+
+.header__logo img {
+  width: 70%;
+  height: auto;
+  margin: 10%;
+  vertical-align: middle;
+}
+
+.mat-icon-button i, .mat-icon-button .mat-icon {
+  line-height: 24px;
+  margin-left: -30px;
+}
+
+table {
+width: 100%;
+border:  1px solid #ddd;
+
+}
+
+.mat-form-field {
+font-size: 14px;
+width: 10%;
+}
+
+td, th {
+width: 5%;
+}
+
+.mat-elevation-z8 {
+/* box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12); */
+box-shadow: 10px 5px 5px 4px rgba(0, 0, 0, 0.2), 15px 10px 12px 6px rgba(0, 0, 0, 0.14), 2px 5px 14px 12px rgba(0, 0, 0, 0.12);
+margin: 10px 45px 0px;
+}
+
+.filter {
+margin-left: 47px;
+}

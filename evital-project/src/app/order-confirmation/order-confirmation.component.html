@@ -1,0 +1,40 @@
+<div class="mat-dialog-container">
+<h1
+mat-dialog-title
+style="
+  text-align: center;
+  font-weight: bold;
+  color: forestgreen;"
+>
+  Order Confirmation
+</h1>
+<mat-dialog-content>
+  <p
+  style="
+    text-align: center;
+    font-weight: bold;
+    font-family: system-ui;
+    color: darkgoldenrod;"
+  >
+    Congratulations!! Your order has been placed successfully!
+  </p>
+  <div>
+    <p><strong style="color: dimgray;">Order ID: </strong> {{ orderDetails.order_id }}</p>
+    <p><strong style="color: dimgray;">Order Number: </strong> {{ orderDetails.order_number }}</p>
+    <p><strong style="color: dimgray;">Total: </strong> {{ orderDetails.total | currency:'INR':'symbol':'1.2-2' }}</p>
+    <p><strong style="color: dimgray;">Date:</strong> {{ formattedDate }}</p>
+    <p><strong style="color: dimgray;">Time:</strong> {{ formattedTime }}</p>
+    <p><strong style="color: dimgray;">Thank You for using eVital, have a good day! :) </strong></p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onClose()"
+  style=
+    "margin-left: -2px;
+    font-weight: bold;
+    border: 2px solid black;"
+  >
+    Back to Cart
+  </button>
+</mat-dialog-actions>
+</div>
