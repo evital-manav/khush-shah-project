@@ -7,6 +7,7 @@ a. **Patient App** - Manages patient data with CRUD operations.
 b. **Main Application** - Handles cart, checkout, and order placement.
 
 **Execution Steps:**
+
 **1. Patient App**
 	
  	a. Open a terminal or command prompt and start the JSON server by executing:
